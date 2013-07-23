@@ -1,0 +1,55 @@
+process for dwellers
+
+!step 1 - 
+	refactoring:
+		deleted the 3 line section before the chuteLoop definition
+
+!step 2 - 
+	fixed z-index's
+		0 - body, #container
+		5 - chute_container, chute_container:hover
+		1000 - header, section, form
+	also added pointer-events:none to some elements overlapping the parachutes
+		so that i didn't have to shiv an element under the logo and get rid of the padding	
+
+!step 3 - 
+	set a limit on the number of possible parachutes - to stop the browswer from crashing
+
+!step 4 - implement parachute destruction sequence
+
+!step 5 - submit button initiates mass parachute destruction sequence
+
+step 6 - second tag bounces up on page load 
+
+!step 7 - make the parachutes paths less linear
+	added css3 keyframe transitions to move the parachutes left to right
+	had to subtract 10 from the random position chosen for the spawned parachute in .js
+	had to link fix.js to clean up animation easing
+
+step 8 - fancify button
+
+?step 9 - get mc-success positioning working for firefox
+	get anything to work on IE
+	sometimes jquery stutters
+
+step 10 - implement modernizr
+
+!step 11 - make parachutes draggable
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+functions
+	chuteHover
+	chuteSpawn
+	chuteAnim
+	chuteLoop
+
+Questions:
+	* why does the animate not work with the bottom property??
+	* how to do the whole animation with css?
+	* how to do the whole animation with jquery?
+
+research
+	jquery puff and scale effects
