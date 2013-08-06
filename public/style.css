@@ -134,15 +134,17 @@ header {
 	width: 960px;
 	margin: 0 auto;
 	text-align: center;
-	position:relative;
+	position: relative;
 }
+
+/* Full Logo */
 
 header img#logo {
 	max-width: 325px;
 	padding-bottom: 75px;
 	transition: padding-bottom 0.5s ease-in 0s;
-	position: relative;
 	z-index: 1000;
+	position: relative;
 	pointer-events: none;
 }
 
@@ -273,6 +275,7 @@ input[type="submit"]:hover {
   pointer-events: none;
 }
 
+/* Cloud Animation */
 .cloud{
 	background-image: url('cloud-50percent.png');
 	background-repeat: no-repeat;
@@ -306,7 +309,7 @@ input[type="submit"]:hover {
 	cursor: pointer;
 }
 
-/* Parachute Animation */
+/* Parachute for dragging */
 .chute-dragging {
 	background-image: url('parachute-hover.png');
 	background-repeat: no-repeat;
@@ -321,6 +324,7 @@ input[type="submit"]:hover {
 }
 
 /* Parachute Animation for self-destruct sequence.. */
+/*
 .chute-deflated {
 	background-image: url('parachute-deflated.png');
 	background-repeat: no-repeat;
@@ -331,7 +335,7 @@ input[type="submit"]:hover {
 	cursor: default;
 	z-index: 5;
 }
-
+*/
 @-webkit-keyframes floatDown {
     from {-webkit-transform:translateX(0px);}
     to {-webkit-transform:translateX(50px);}

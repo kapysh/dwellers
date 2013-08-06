@@ -1,15 +1,14 @@
-var windowHeight = window.innerHeight;
-var i = 0;
-
 $(document).ready(function() {
 
   function chuteLoop() {
+    var i = 0;
+    body = $('body');
     setInterval(function() {
-      $('body').append('<div class="chute-container" id="' + i + '"></div>');
+      body.append('<div class="chute-container" id="' + i + '"></div>');
       var chute = $("#"+i); //caching selector
 
       chute.css({"left": ((Math.random()*100) - 10) + "%"});
-      chute.animate({"bottom":"0%"}, 20000,"linear"); //using linear to start the animation faster
+      chute.animate({"bottom":"0%"}, 20000,"linear", function(){chute.remove()}); //using linear to start the animation faster
 
       //applying draggable: stopping animation ondragstart, switching to class that uses same image as hover
       //so that when dragging, the icon doesn't flicker when the cursor isn't directly above it
@@ -24,11 +23,6 @@ $(document).ready(function() {
           chute.animate({top:"88%"}, 20000, "linear");
         }
       });
-
-      //this section is to make sure that there are never more than 21 chutes, for site performance
-      if(i >= 20){
-        $("#"+(i-20)).remove();
-      }
 
       i++;  //incrementing counter
     }, 1200);
@@ -74,21 +68,18 @@ $(window).load(function(){
 
 //animating the logo, must be done in window.load to receive correct offset values on images
 function animLogo(){
+  logoPiece = $("#logo-piece");
   logo = $("#logo");
   header = $("header");
-  var offset = logo.offset();
+  var offset = logoPiece.offset();
+
   //creating copy of logo and snapping it to logo position on page
-  header.append('<img id="logo2" src="logo.png"/>');
-  logo2 = $("#logo2");
-  logo2.css({"max-width":325, "position":"absolute"});
-  logo2.offset({top:offset.top, left:offset.left});
+  logo.offset({top:offset.top, left:offset.left});
   //hiding logo2 and then animating it to slowly reveal
-  logo2.hide();
-  logo2.show('clip', {direction:'vertical'}, 800);
+  logo.show('clip', {direction:'vertical'}, 800);
   //changing img src on original logo (to save original css formatting), and removing logo2
   setTimeout(function(){
-    logo.attr("src", "logo.png");
-    logo2.remove();
+    logoPiece.remove();
   },800);
 }
 
